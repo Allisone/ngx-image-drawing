@@ -230,6 +230,9 @@ export class ImageDrawingComponent implements OnInit, OnChanges {
                 } else {
                     canvasScaled.setWidth(this.width);
                     canvasScaled.setHeight(this.height);
+
+                    observer.next(canvasScaled);
+                    observer.complete();
                 }
             }).pipe(
                 switchMap(() => {
