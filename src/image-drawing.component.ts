@@ -193,7 +193,7 @@ export class ImageDrawingComponent implements OnInit, OnChanges {
                         canvasScaled.setWidth(this.width);
                         canvasScaled.setHeight(this.height);
 
-                        this.imageUsed.cloneAsImage(imageCloned => {
+                        this.imageUsed.cloneAsImage(imageCloned: fabric.Image => {
                             imageCloned.scaleToWidth(this.width, false);
                             imageCloned.scaleToHeight(this.height, false);
 
