@@ -14,6 +14,7 @@ export class ImageDrawingComponent implements OnInit, OnChanges {
     @Input() public src?: string;
     @Input() public width?: number;
     @Input() public height?: number;
+    @Input() public backgroundColor = 'transparent';
 
     @Input() public forceSizeCanvas = true;
     @Input() public forceSizeExport = false;
@@ -92,7 +93,7 @@ export class ImageDrawingComponent implements OnInit, OnChanges {
             hoverCursor: 'pointer',
             isDrawingMode: true,
         });
-        this.canvas.backgroundColor = 'white';
+        this.canvas.backgroundColor = this.backgroundColor;
 
         if (this.src) {
             this.importPhotoFromSrc(this.src);
@@ -185,7 +186,7 @@ export class ImageDrawingComponent implements OnInit, OnChanges {
         if (!this.forceSizeExport || (this.forceSizeExport && this.width && this.height)) {
             const canvasScaledElement: HTMLCanvasElement = document.createElement('canvas');
             const canvasScaled = new fabric.Canvas(canvasScaledElement);
-            canvasScaled.backgroundColor = 'white';
+            canvasScaled.backgroundColor = this.backgroundColor;
 
             new Observable<fabric.Canvas>(observer => {
                 if (this.imageUsed) {
@@ -193,7 +194,7 @@ export class ImageDrawingComponent implements OnInit, OnChanges {
                         canvasScaled.setWidth(this.width);
                         canvasScaled.setHeight(this.height);
 
-                        this.imageUsed.cloneAsImage(imageCloned: fabric.Image => {
+                        this.imageUsed.cloneAsImage((imageCloned: fabric.Image) => {
                             imageCloned.scaleToWidth(this.width, false);
                             imageCloned.scaleToHeight(this.height, false);
 

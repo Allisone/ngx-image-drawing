@@ -1,6 +1,6 @@
 {
     "name": "ngx-image-drawing",
-    "version": "1.2.4",
+    "version": "1.2.5",
     "description": "Angular module to draw on images",
     "main": "./bundles/ngx-image-drawing.umd.js",
     "module": "./ngx-image-drawing/ngx-image-drawing.es5.js",
@@ -10,7 +10,7 @@
         "build": "ng-packagr -p ng-package.json && cp -r ./dist/* ./demo/node_modules/ngx-image-drawing",
         "pack-lib": "npm pack ./dist",
         "pkg-info": "echo Publishing package: $npm_package_name-$npm_package_version.tgz",
-        "publish-lib": "npm publish $npm_package_name-$npm_package_version.tgz"
+        "publish-lib": "npm publish $npm_npm package_name-$npm_package_version.tgz"
     },
     "typings": "./ngx-image-drawing.d.ts",
     "author": "Groupe Curious",
